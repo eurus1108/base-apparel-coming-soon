@@ -5,7 +5,7 @@
   --p-colorRed200: hsl(0, 80%, 86%);
   --n-colorGray500: hsl(0, 6%, 24%);
   --n-colorGray400: hsl(0, 0%, 100%);
-  --n-colorTransparentGray600: hsla(0, 6%, 24%, 0.6);
+  --n-colorTransparentGray600: hsla(0, 6%, 24%, 0.4);
   --g-linear-white-500: linear-gradient(
     135deg,
     hsl(0, 0%, 100%),
@@ -58,6 +58,29 @@ body {
   background-color: var(--color-background-default);
 }
 
+@keyframes shake {
+  0% {
+    transform: translate(-0, -25%);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate(-0.8em, -25%);
+  }
+  10%,
+  30%,
+  50% {
+    transform: translate(-0.2em, -25%);
+  }
+
+  70%,
+  100% {
+    transform: translate(-0, -25%);
+  }
+}
+
 .h-wrapper {
   position: relative;
 }
@@ -72,7 +95,7 @@ body {
   justify-content: space-between;
 }
 
-.featured-panel__content-overlay {
+.featured-panel__element {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,14 +104,18 @@ body {
 }
 
 @media only screen and (min-width: 997px) {
-  .featured-panel__content-overlay {
+  .featured-panel__element {
     height: 100vh;
   }
 }
 
+.featured-panel__content-overlay {
+  padding-right: 5.6rem;
+}
+
 .featured-panel__content-container {
   margin: 0 auto;
-  padding-top: 3.5rem;
+  padding-top: 9.8rem;
   max-width: 44.5rem;
   width: 100%;
 }
@@ -123,6 +150,10 @@ body {
   width: 100%;
 }
 
+.featured-panel__form-container {
+  position: relative;
+}
+
 .featured-panel__form-container input[type="email"] {
   padding: 2.1rem 3.2rem 1.9rem;
   width: 100%;
@@ -134,9 +165,42 @@ body {
 
 .featured-panel__form-container input[placeholder] {
   font-family: inherit;
-  font-size: var(--font-size-400);
+  font-size: var(--font-size-500);
   color: var(--color-text-headline);
   line-height: 1.6rem;
+}
+
+.featured-panel__form-container .err-icon {
+  position: absolute;
+  top: 26%;
+  right: 26%;
+  transform: translateY(-25%);
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms ease-in-out;
+}
+
+.featured-panel__form-container .err-icon.anim {
+  opacity: 1;
+  visibility: visible;
+  animation: shake 800ms ease-in;
+}
+
+.featured-panel__form .featured-panel__form-container .err-message {
+  margin-top: 1rem;
+  padding: 0 3.2rem;
+  font-size: var(--font-size-400);
+  letter-spacing: -0.03em;
+  color: var(--color-text-error);
+  opacity: 0;
+  visibility: hidden;
+  transition: 300ms ease-in-out;
+}
+
+.featured-panel__form.error .featured-panel__form-container .err-message {
+  opacity: 1;
+  visibility: visible;
 }
 
 .featured-panel__form .form-button {

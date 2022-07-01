@@ -37,30 +37,41 @@
       <section class="viewport">
         <div class="featured-panel">
           <div class="featured-panel__container">
-            <div class="featured-panel__content-overlay">
-              <div class="featured-panel__content-container">
-                <div class="featured-panel__text-content">
-                  <span class="featured-panel__subheadline">WE'RE</span>
-                  <h1 class="featured-panel__headline">COMING SOON</h1>
-                  <p class="featured-panel__body">
-                    Hello fellow shoppers! We’ re currently building our new
-                    fashion store. Add your email below to stay up-to-date with
-                    announcements and our launch deals.
-                  </p>
-                </div>
-                <form class="featured-panel__form">
-                  <div class="featured-panel__form-container">
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email Address"
-                      class="email-input"
-                    />
+            <div class="featured-panel__element">
+              <div class="featured-panel__content-overlay">
+                <div class="featured-panel__content-container">
+                  <div class="featured-panel__text-content">
+                    <span class="featured-panel__subheadline">WE'RE</span>
+                    <h1 class="featured-panel__headline">COMING SOON</h1>
+                    <p class="featured-panel__body">
+                      Hello fellow shoppers! We’ re currently building our new
+                      fashion store. Add your email below to stay up-to-date
+                      with announcements and our launch deals.
+                    </p>
                   </div>
-                  <button type="submit" class="form-button">
-                    <img src="./images/icon-arrow.svg" alt="arrow-icon" />
-                  </button>
-                </form>
+                  <form class="featured-panel__form" data-form="">
+                    <div class="featured-panel__form-container">
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email Address"
+                        data-input=""
+                      />
+                      <img
+                        src="./images/icon-error.svg"
+                        alt="error-icont"
+                        class="err-icon"
+                        data-icon=""
+                      />
+                      <div class="err-message">
+                        Please provide a valid email
+                      </div>
+                    </div>
+                    <button type="submit" class="form-button" data-btn="">
+                      <img src="./images/icon-arrow.svg" alt="arrow-icon" />
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
             <div class="featured-panel__img-container">
