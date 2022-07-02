@@ -181,13 +181,13 @@ body {
   transition: 300ms ease-in-out;
 }
 
-.featured-panel__form-container .err-icon.anim {
+.featured-panel__form-container.error .err-icon {
   opacity: 1;
   visibility: visible;
   animation: shake 800ms ease-in;
 }
 
-.featured-panel__form .featured-panel__form-container .err-message {
+.featured-panel__form-container .err-message {
   margin-top: 1rem;
   padding: 0 3.2rem;
   font-size: var(--font-size-400);
@@ -197,8 +197,7 @@ body {
   visibility: hidden;
   transition: 300ms ease-in-out;
 }
-
-.featured-panel__form.error .featured-panel__form-container .err-message {
+.featured-panel__form-container.error .err-message {
   opacity: 1;
   visibility: visible;
 }
