@@ -1,27 +1,21 @@
 const form = document.querySelector("[data-form]");
 const emailAddress = document.querySelector("[data-input]");
+const submitBtn = document.querySelector("[data-btn]");
 const errorIcon = document.querySelector(".err-icon");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+submitBtn.addEventListener("click", checInputs);
 
-  checInputs();
-
-  errorIcon.classList.remove("anim");
-  void errorIcon.offsetWidth;
-  errorIcon.classList.add("anim");
-});
-
-function checInputs() {
+function checInputs(e) {
   const emailAddressValue = emailAddress.value.trim();
-  const re =
+  const regex =
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  if (emailAddressValue === "" || !re.test(emailAddressValue)) {
+  if (!regex.test(emailAddressValue) || emailAddressValue === "") {
     inputError(emailAddress, "Please provide a valid email");
-    inputError(emailAddress, "Please enter an email");
+    e.preventDefault();
   } else {
     inputSuccess(emailAddress);
+    form.submit();
   }
 }
 
