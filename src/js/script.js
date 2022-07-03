@@ -15,7 +15,6 @@ function checInputs(e) {
     e.preventDefault();
   } else {
     inputSuccess(emailAddress);
-    form.submit();
   }
 }
 
